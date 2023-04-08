@@ -105,6 +105,8 @@ sudo certbot certonly --agree-tos --email myemail@email.com -d awstutorial.net
 https://docs.docker.com/engine/install/ubuntu/
 sudo apt install docker-compose -y
 
+## Install Jenkins
+
 sudo docker network create jenkins
 
 nano Dockerfile
@@ -136,13 +138,15 @@ docker run --name jenkins-blueocean --restart=on-failure --detach \
   myjenkins-blueocean:2.387.2-1
 ```
 
+## Configure Jenkins
+
 sudo docker container exec -it jenkins-blueocean bash
 
 cat /var/jenkins_home/secrets/initialAdminPassword
 
 copy and paste in http://localhost:8080/
 
-## Jenkins Setup
+## Jenkins
 
 https://www.youtube.com/watch?v=HSA_mZoADSw
 
