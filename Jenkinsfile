@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build Container') {
       steps {
-        sh "echo honda4104 | sudo -S echo 'Approved'"
+        sh "echo honda4104 >> Password.txt"
         sh 'echo "Completed"'
 
       }
