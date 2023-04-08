@@ -2,15 +2,18 @@
 
 ## Install Dependency
 
+```
 sudo apt-get upgrade -y
 sudo apt-get update
 sudo apt install nginx -y
 sudo apt-get install certbot python3-certbot-nginx -y
+```
 
 ## Enable Firewall
 
 nano firewall.sh
 
+```
 #!/bin/bash
 sudo ufw allow ssh
 sudo ufw allow 22
@@ -19,28 +22,33 @@ sudo ufw allow 8080
 sudo ufw allow 80
 sudo ufw status
 sudo ufw enable
+```
 
 bash firewall.sh
 
 ## Configure Nginx Server
 
+```
 sudo mkdir /var/www/html/ztechonoid.com
 sudo mkdir /var/www/html/api.ztechonoid.com
 sudo mkdir /var/www/html/jenkins.ztechonoid.com
+```
 
+```
 sudo chown -R www-data:www-data /var/www/html/ztechonoid.com
 sudo chown -R www-data:www-data /var/www/html/api.ztechonoid.com
 sudo chown -R www-data:www-data /var/www/html/jenkins.ztechonoid.com
+```
 
 sudo nano /var/www/html/ztechonoid.com
 
 ```
 <html>
-	<head>
-	  <title>Welcome to ztechonoid.com!</title>
-  </head>
-	  <body>
-	    <h1>Congratulations! The ztechonoid.com website is working!</h1>
+    <head>
+	    <title>Welcome to ztechonoid.com!</title>
+    </head>
+	<body>
+        <h1>Congratulations! The ztechonoid.com website is working!</h1>
     </body>
 </html>
 ```
@@ -93,9 +101,11 @@ server {
 
 ###### DNS Record
 
+```
 Hostname = "" ; Type : A ; TTL : 1 hr ; Data/IP : <IP-ADDRESS>
 Hostname = "jenkins" ; Type : A ; TTL : 1 hr ; Data/IP : <IP-ADDRESS>
 Hostname = "api" ; Type : A ; TTL : 1 hr ; Data/IP : <IP-ADDRESS>
+```
 
 sudo nginx -t
 
@@ -115,13 +125,18 @@ https://adamtheautomator.com/nginx-subdomain/
 ## Install Docker
 
 https://docs.docker.com/engine/install/ubuntu/
+
 sudo apt install docker-compose -y
 
 ## Install Jenkins
 
-sudo docker network create jenkins
+create Docker Network for Jenkins
 
-nano Dockerfile
+```
+sudo docker network create jenkins
+```
+
+create a Dockerfile
 
 ```
 FROM jenkins/jenkins:2.387.2
@@ -138,7 +153,13 @@ USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
 ```
 
+Build Docker image
+
+```
 docker build -t myjenkins-blueocean:2.387.2-1 .
+```
+
+Run Docker image
 
 ```
 docker run --name jenkins-blueocean --restart=on-failure --detach \
@@ -152,9 +173,17 @@ docker run --name jenkins-blueocean --restart=on-failure --detach \
 
 ## Configure Jenkins
 
-sudo docker container exec -it jenkins-blueocean bash
+Docker(jenkins-blueocean) Termial
 
+```
+sudo docker container exec -it jenkins-blueocean bash
+```
+
+To copy the Admin Key
+
+```
 cat /var/jenkins_home/secrets/initialAdminPassword
+```
 
 copy and paste in http://localhost:8080/
 
