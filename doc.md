@@ -1,5 +1,3 @@
-# Jenkins-Pipeline
-
 sudo apt-get upgrade -y
 sudo apt-get update
 sudo apt install nginx -y
@@ -141,20 +139,3 @@ sudo docker container exec -it jenkins-blueocean bash
 cat /var/jenkins_home/secrets/initialAdminPassword
 
 copy and paste in http://localhost:8080/
-
-## Jenkins Setup
-
-https://www.youtube.com/watch?v=HSA_mZoADSw
-
-Port Forward : https://medium.com/automationmaster/how-to-use-ngrok-to-forward-my-local-port-to-public-5e9b148ff31c
-
-```
-ngrok http 8080
-```
-
-https://www.cloudbees.com/blog/jenkins-tutorial-configure-scm-github-triggers-and-git-polling-using-ngrok
-
-https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Jenkins-GitHub-Webhook-example-no-403-crumb-error
-
-Alternative for Ngrok
-http://serveo.net/
