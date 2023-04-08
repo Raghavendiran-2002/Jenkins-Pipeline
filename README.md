@@ -160,6 +160,36 @@ copy and paste in http://localhost:8080/
 
 ## create Pipeline
 
+- create New Project
+- choose "Pipeline" && enter project name
+- under "Build Triggers" select "Github hook trigger for GITScm polling"
+- under "Pipeline" choose "Pipeline script from SCM"
+- under "SCM" choose "git"
+- under "Repository URL" enter Github URL
+- under "Credentials" click "Add" choose "Jenkins"
+- "Jenkins Credentials Provider" pops-up
+- under "Username" enter github username
+- under "Password" enter github personal token
+- under "Description" enter the description
+- once the "Credentials Provider" closes
+- choose "Credentails" which you have created above
+- under "Branches to build" specify the branch name
+- click "Apply and Save"
+
+##### Webhooks setup
+
+- choose "user" on right-top near logout
+- choose "configure"
+- under "API Token" > add new token > copy the token
+- Add the token on to github > under repo "settings" > under "code and automations" > select "Webhooks"
+- click "Add Webhooks"
+- under "Payload URL" > IP-ADDRESS-SERVER/github-webhook/
+- under "content type" > "application/json"
+- paste the above token under "Secret"
+- click "create webhook"
+
+https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Jenkins-GitHub-Webhook-example-no-403-crumb-error
+
 ## Jenkins
 
 https://www.youtube.com/watch?v=HSA_mZoADSw
