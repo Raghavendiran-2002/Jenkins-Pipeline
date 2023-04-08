@@ -7,3 +7,5 @@ Port Forward : https://medium.com/automationmaster/how-to-use-ngrok-to-forward-m
 ```
 ngrok http 8080
 ```
+
+https://www.cloudbees.com/blog/jenkins-tutorial-configure-scm-github-triggers-and-git-polling-using-ngrok
