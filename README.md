@@ -9,3 +9,5 @@ ngrok http 8080
 ```
 
 https://www.cloudbees.com/blog/jenkins-tutorial-configure-scm-github-triggers-and-git-polling-using-ngrok
+
+https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Jenkins-GitHub-Webhook-example-no-403-crumb-error
