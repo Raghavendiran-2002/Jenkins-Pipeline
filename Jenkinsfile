@@ -1,12 +1,14 @@
 pipeline {
-  agent { dockerfile true }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'node --version'
-                sh 'node index.js'
-            }
+  agent {  
+    docker { image 'raghavendiran2002/ks-api:cicd' } 
         }
+      stages {
+          stage('Build') {
+              steps {
+                  sh 'node --version'
+                  sh 'node index.js'
+              }
+          }
     }
   // agent any
   // stages {
