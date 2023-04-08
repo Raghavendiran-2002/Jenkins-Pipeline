@@ -1,8 +1,13 @@
 # Jenkins-Pipeline
 
+## Install Dependency
+
 sudo apt-get upgrade -y
 sudo apt-get update
 sudo apt install nginx -y
+sudo apt-get install certbot python3-certbot-nginx -y
+
+## Enable Firewall
 
 nano firewall.sh
 
@@ -16,6 +21,8 @@ sudo ufw status
 sudo ufw enable
 
 bash firewall.sh
+
+## Configure Nginx Server
 
 sudo mkdir /var/www/html/ztechonoid.com
 sudo mkdir /var/www/html/api.ztechonoid.com
@@ -84,6 +91,12 @@ server {
     }
 ```
 
+###### DNS Record
+
+Hostname = "" ; Type : A ; TTL : 1 hr ; Data/IP : <IP-ADDRESS>
+Hostname = "jenkins" ; Type : A ; TTL : 1 hr ; Data/IP : <IP-ADDRESS>
+Hostname = "api" ; Type : A ; TTL : 1 hr ; Data/IP : <IP-ADDRESS>
+
 sudo nginx -t
 
 sudo ln -s /etc/nginx/sites-available/ztechonoid.com /etc/nginx/sites-enabled/
@@ -94,13 +107,12 @@ sudo ln -s /etc/nginx/sites-available/api.ztechonoid.com /etc/nginx/sites-enable
 
 sudo systemctl restart nginx
 
-##
-
-sudo apt-get install certbot python3-certbot-nginx -y
+#### SSL
 
 sudo certbot certonly --agree-tos --email myemail@email.com -d awstutorial.net
+https://adamtheautomator.com/nginx-subdomain/
 
-### Install Docker
+## Install Docker
 
 https://docs.docker.com/engine/install/ubuntu/
 sudo apt install docker-compose -y
@@ -145,6 +157,8 @@ sudo docker container exec -it jenkins-blueocean bash
 cat /var/jenkins_home/secrets/initialAdminPassword
 
 copy and paste in http://localhost:8080/
+
+## create Pipeline
 
 ## Jenkins
 
